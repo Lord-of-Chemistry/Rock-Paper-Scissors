@@ -1,69 +1,103 @@
+/* Background: gradient + stars */
 body {
-    font-family: 'Arial', sans-serif;
-    text-align: center;
-    background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at top, #1a1c2e, #0a0a0f);
+  color: #fff;
+  overflow: hidden;
 }
 
+/* Game container with glassmorphism */
 .game-container {
-    background: #ffffff67;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 90%;
-    max-width: 600px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  width: 90%;
+  max-width: 600px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+  animation: fadeIn 1.2s ease;
 }
 
+/* Title */
 h1 {
-    margin-bottom: 20px;
-    font-size: 2.5em;
-    color: #333;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #38bdf8, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: glow 3s infinite alternate;
 }
 
+/* Choices layout */
 .choices {
-    display: flex;
-    justify-content: space-around;
-    margin: 20px 0;
+  display: flex;
+  justify-content: space-around;
+  margin: 30px 0;
 }
 
+/* Choice buttons */
 .choice {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.2em;
-    transition: transform 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid transparent;
+  border-radius: 15px;
+  padding: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 120px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .choice img {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 10px;
+  width: 70px;
+  height: 70px;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
 }
 
+.choice span {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #e0e0e0;
+}
+
+/* Hover effect */
 .choice:hover {
-    transform: scale(1.1);
+  border-color: #38bdf8;
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 0 15px #38bdf8;
 }
 
-.result {
-    margin-top: 20px;
-}
-
+/* Result text */
 #resultText {
-    font-size: 1.5em;
-    color: #555;
+  font-size: 1.5rem;
+  margin-top: 10px;
+  color: #f9fafb;
+  font-weight: 500;
 }
 
+/* Scoreboard */
 .score {
-    margin-top: 20px;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #cbd5e1;
 }
 
-#scoreText,
-#tieScore {
-    font-size: 1.2em;
-    color: #555;
+/* Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px #38bdf8; }
+  to { text-shadow: 0 0 20px #a855f7, 0 0 30px #ec4899; }
 }
